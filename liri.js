@@ -17,7 +17,10 @@ var client = new twitter(twitterKeys);
 var action = process.argv[2];
 //function that pulls recent tweets when action is set to my-tweets
 function twitterFunc() {	
+	//sets twitter user name to process.argv[3] or RichardDotchin if nothing entered
 	var userName = process.argv[3] || 'RichardDotchin';
+	/*sets varaible params to an object with a key of screen_name set to the userName
+	variable*/
 	var params = {screen_name: userName};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
@@ -33,7 +36,7 @@ function twitterFunc() {
 
 //function to be called when the user sets the variable action to movie-this
 function omdbFunc(){
-	//movie the user searches after 'movie-this' in process.argv[2]
+	//sets song to process.argv[3] or default to Mr Nobody if nothing is entered
 	var movie = process.argv[3] || 'Mr Nobody';
 
 	//omdb url to be used in the request
@@ -60,6 +63,7 @@ function omdbFunc(){
 }
 
 function spotifyFunc(){
+	//sets song to process.argv[3] or a default song if nothing entered
 	var song = process.argv[3] || 'never gonna give you up'; 
 
 	spotify.search({type: 'track', query: song}, function(err, data){
