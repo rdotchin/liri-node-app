@@ -5,6 +5,8 @@ var twitter = require('twitter');
 var request = require('request');
 //require the spotify npm package
 var spotify = require('spotify');
+//require the fs npm package
+var fs = require('fs');
 //link the keys.js file to liri
 var twitterKeysFile = require('./keys.js');
 
@@ -78,15 +80,35 @@ function spotifyFunc(){
 
 }
 
+var exec = require('child_process').exec;
+
+
+function fsFunc(){
+	fs.readFile('./random.txt', 'utf8', function(err, data) {
+		if(err) {console.log(err)}
+			
+			var cmd = 'node liri.js ' + data;
+
+			exec(cmd, function(error, stdout, stderr) {
+				console.log(stdout);
+			})
+		
+
+	})
+}
+
 //switch statement calling the function related to the users action request
 switch(action){
-	case 'tweets':
+	case 'my-tweets':
 	twitterFunc();
 	break
-	case 'movie':
+	case 'movie-this':
 	omdbFunc();
 	break
-	case 'spotify':
+	case 'spotify-this-song':
 	spotifyFunc();
+	break
+	case 'do-what-it-says':
+	fsFunc();
 	break
 }

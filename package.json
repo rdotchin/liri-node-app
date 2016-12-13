@@ -4,6 +4,7 @@
   "description": "uses Spotify, Twitter and OMDB to retrieve information.",
   "main": "liri.js",
   "dependencies": {
+    "fs": "0.0.1-security",
     "request": "^2.79.0",
     "spotify": "^0.3.0",
     "twitter": "^1.5.0"
