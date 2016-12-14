@@ -1,35 +1,29 @@
 /*VARIABLES & REQUIRE*/
 /*-----------------------------------------------------------------------------------*/
-//requires the twitter npm package
 var twitter = require('twitter');
-//requires the request npm package 
 var request = require('request');
-//require the spotify npm package
 var spotify = require('spotify');
-//require fs from node
 var fs = require('fs');
-//require child_process from node 
+//require child_process from node for fsFunc() to run command in terminal
 var exec = require('child_process').exec;
 //link the keys.js file to liri
 var twitterKeysFile = require('./keys.js');
 //store the keys from keys.js in a variable.
 var twitterKeys = twitterKeysFile.twitterKeys;
-
 var client = new twitter(twitterKeys);
 //variables set to the action the user request and what they want to search
 var action = process.argv[2];
-/*END OF VARIABLES & REQUIRE*/
 /*-----------------------------------------------------------------------------------*/
 
 /*LOG TERMINAL COMMANDS AND RESULTS*/
 /*-----------------------------------------------------------------------------------*/
 var logQ = process.argv[3] || ' '
-var terminalCmd = '\n*TERMINAL COMMAND: node liri.js ' + action + ' ' + logQ + '\n';
+var terminalCmd = '\n⚫️TERMINAL COMMAND: node liri.js ' + action + ' ' + logQ + '⚫️\n';
 fs.appendFile('./log.txt', terminalCmd, function(err){
 	if(err) {console.log(err)}
 })
 
-//logs results to a text file named log.txt
+//logs results by appending to a text file named log.txt
 function logText(text) {
 	fs.appendFile('./log.txt', text, function(err) {
 	if(err) {console.log(err)}
@@ -43,53 +37,56 @@ function logText(text) {
 function twitterFunc() {	
 	//sets twitter user name to process.argv[3] or RichardDotchin if nothing entered
 	var userName = process.argv[3] || 'RichardDotchin';
-	/*sets varaible params to an object with a key of screen_name set to the userName
-	variable*/
-	var params = {screen_name: userName};
+	/*paramaters of screen_name and count maximum of 20*/
+	var params = {screen_name: userName,
+				  count: 20};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 		if (error) {return console.log(error)};
 		var twitterName = "---------TWITTER---------\nTwitter user: @" + params.screen_name + '\n'
+		//log username to terminal and log.txt
 		console.log('\n' + twitterName);
+		//log username to log.txt
 		logText('\n' + twitterName);
+		//for loop to print out each tweet
 		for(var i = 0; i < tweets.length; i++){
+			//tweets set to variable userTweets
 			var userTweets = '\nDate: ' + tweets[i].created_at + '\nTweeted: ' + tweets[i].text + '\n'
+			//log tweets to terminal
 			console.log(userTweets);
+			//log tweets to log.txt
 			logText(userTweets);
-			//setting so only a maximum of 20 tweets are shown
-			if(i == 20) {break}
 		}
 	});
 } //end of twitterFunc()
 
 //function to be called when the user sets the variable action to movie-this
 function omdbFunc(){
-	//sets song to process.argv[3] or default to Mr Nobody if nothing is entered
+	//variables for user movie search and url to be used in the request
 	var movie = process.argv[3] || 'Mr Nobody';
-
-	//omdb url to be used in the request
 	var url = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&tomatoes=true&r=json";
 	
 	//request version of an ajax call
 	request(url, function (error, response, body) {
-	  if (!error && response.statusCode == 200) {
-	  	//taking the response and changing from a string to an object
-	    body = JSON.parse(body); 
-
-	    //print the following information to the terminal
-	    var omdbResults = '\n--------OMDB RESULTS--------\n' + 
-	    			'Title: ' + body.Title + '\n' +
-	    			'Year: ' + body.Year + '\n' +
-	    			'IMDB Rating: ' + body.imdbRating + '\n' +
-	    			'Country: ' + body.Country + '\n' +
-	    			'Language: ' + body.Language + '\n' +
-	    			'Plot: ' + body.Plot + '\n' +
-	    			'Actors: ' + body.Actors + '\n'+
-	    			'Rotten Tomatoes Rating: ' + body.tomatoUserMeter + '\n' +
-	    			'Rotten Tomatoes URL: ' + body.tomatoURL + 
-	    			'\n------END OF OMDB RESULTS------\n';
-	    console.log(omdbResults);
-	    logText(omdbResults);
+		if (!error && response.statusCode == 200) {
+		  	//taking the response and changing from a string to an object
+		    body = JSON.parse(body); 
+		    //omdb results set to variable omdbResults
+		    var omdbResults = '\n--------OMDB RESULTS--------\n' + 
+		    			'\nTitle: ' + body.Title + '\n' +
+		    			'Year: ' + body.Year + '\n' +
+		    			'IMDB Rating: ' + body.imdbRating + '\n' +
+		    			'Country: ' + body.Country + '\n' +
+		    			'Language: ' + body.Language + '\n' +
+		    			'Plot: ' + body.Plot + '\n' +
+		    			'Actors: ' + body.Actors + '\n'+
+		    			'Rotten Tomatoes Rating: ' + body.tomatoUserMeter + '\n' +
+		    			'Rotten Tomatoes URL: ' + body.tomatoURL + 
+		    			'\n\n-----END OF OMDB RESULTS🎬-----\n';
+		    //log omdb results to the terminal
+		    console.log(omdbResults);
+		    //log omdb results to log.txt
+		    logText(omdbResults);
 	  }
 	});
 } //end of omdbFunc()
@@ -97,19 +94,19 @@ function omdbFunc(){
 function spotifyFunc(){
 	//sets song to process.argv[3] or a default song if nothing entered
 	var song = process.argv[3] || 'never gonna give you up'; 
-
+	//use Spotify npm package to search for song requested by user
 	spotify.search({type: 'track', query: song}, function(err, data){
-		if(err) {console.log(err)}
-			
-			/*console.log(data.tracks.items[0]);*/
-			//console.log info for the song searched to the terminal
-			var spotifyResults = '\n--------SPOTIFY RESULTS--------\n' + 
-						'Artist: ' + data.tracks.items[0].artists[0].name + '\n' +
-						'Song: ' + data.tracks.items[0].name + '\n' +
-						'Spotify URL: ' + data.tracks.items[0].external_urls.spotify + 
-						'\n-------------------------------\n';
-			console.log(spotifyResults);
-			logText(spotifyResults);
+		if(err) {console.log('Spotify error: ' + err)}	
+		//song information set to variable spotifyResults
+		var spotifyResults = '\n--------SPOTIFY RESULTS--------\n\n' + 
+					'Artist: ' + data.tracks.items[0].artists[0].name + '\n' +
+					'Song: ' + data.tracks.items[0].name + '\n' +
+					'Spotify URL: ' + data.tracks.items[0].external_urls.spotify + 
+					'\n\n-----END OF SPOTIFY RESULTS🤘----\n';
+		//log spotify results to the terminal
+		console.log(spotifyResults);
+		//log spotify results to log.txt
+		logText(spotifyResults);
 	});
 } //end of spotifyFunc()
 
@@ -121,14 +118,13 @@ function fsFunc(){
 			var cmd = 'node liri.js ' + data;
 			//execute the command in the variable cmd
 			exec(cmd, function(error, stdout, stderr) {
-				//console.log the results from the command
+				//log results to the terminal
 				console.log(stdout);
+				//log results to log.txt
 				logText(stdout);
 			})
 	});
 } //end of fsFunc()
-
-/*END OF FUNCTIONS*/
 /*-----------------------------------------------------------------------------------*/
 
 /*SWITCH STATEMENT*/
@@ -152,6 +148,4 @@ switch(action){
 	fsFunc();
 	break
 } //end of switch(action) statement
-
-/*END OF SWITCH STATEMENT*/
 /*-----------------------------------------------------------------------------------*/

@@ -45,9 +45,207 @@ Song: I Want It That Way
 Spotify URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
 -------------------------------
 
+
+*TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+------END OF OMDB RESULTS------
+
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
 --------SPOTIFY RESULTS--------
-Artist: Backstreet Boys
-Song: I Want It That Way
-Spotify URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
 -------------------------------
 
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
+--------SPOTIFY RESULTS--------
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
+---------END OF SPOTIFY RESULTS---------
+
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
+--------SPOTIFY RESULTS--------
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
+-------END OF SPOTIFY RESULTS-------
+
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
+--------SPOTIFY RESULTS--------
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
+-----END OF SPOTIFY RESULTS-----
+
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
+--------SPOTIFY RESULTS--------
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
+----🤘END OF SPOTIFY RESULTS🤘----
+
+*TERMINAL COMMAND: node liri.js spotify-this-song 24k
+
+--------SPOTIFY RESULTS--------
+
+Artist: Bruno Mars
+Song: 24K Magic
+Spotify URL: https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P
+
+-----END OF SPOTIFY RESULTS🤘----
+
+*TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+------END OF OMDB RESULTS🎬------
+
+*TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+------END OF OMDB RESULTS🎬-----
+
+*TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
+
+*TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
+
+👾TERMINAL COMMAND: node liri.js movie-this batman👾
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
+
+☠️TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
+
+⚫️TERMINAL COMMAND: node liri.js movie-this batman
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
+
+⚫️TERMINAL COMMAND: node liri.js movie-this batman⚫️
+
+--------OMDB RESULTS--------
+
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes Rating: 84
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+
+-----END OF OMDB RESULTS🎬-----
