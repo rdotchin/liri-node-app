@@ -1,0 +1,53 @@
+
+*TERMINAL COMMAND: node liri.js my-tweets  
+
+---------TWITTER---------
+Twitter user: @RichardDotchin
+
+Date: Fri Dec 09 03:44:58 +0000 2016
+Tweeted: test #3
+
+Date: Fri Dec 09 03:44:53 +0000 2016
+Tweeted: test #2
+
+Date: Fri Dec 09 03:44:47 +0000 2016
+Tweeted: test #1
+
+*TERMINAL COMMAND: node liri.js movie-this batman begins
+
+--------OMDB RESULTS--------
+Title: Batman Begins
+Year: 2005
+IMDB Rating: 8.3
+Country: USA, UK
+Language: English, Urdu, Mandarin
+Plot: After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.
+Actors: Christian Bale, Michael Caine, Liam Neeson, Katie Holmes
+Rotten Tomatoes Rating: 94
+Rotten Tomatoes URL: http://www.rottentomatoes.com/m/batman_begins/
+------END OF OMDB RESULTS------
+
+*TERMINAL COMMAND: node liri.js spotify-this-song shook me all night long
+
+--------SPOTIFY RESULTS--------
+Artist: AC/DC
+Song: You Shook Me All Night Long
+Spotify URL: https://open.spotify.com/track/6yl8Es1tCYD9WdSkeVLFw4
+-------------------------------
+
+*TERMINAL COMMAND: node liri.js do-what-it-says  
+
+*TERMINAL COMMAND: node liri.js spotify-this-song I Want it That Way
+
+--------SPOTIFY RESULTS--------
+Artist: Backstreet Boys
+Song: I Want It That Way
+Spotify URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
+-------------------------------
+
+--------SPOTIFY RESULTS--------
+Artist: Backstreet Boys
+Song: I Want It That Way
+Spotify URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
+-------------------------------
+

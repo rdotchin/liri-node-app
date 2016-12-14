@@ -18,11 +18,26 @@ var twitterKeys = twitterKeysFile.twitterKeys;
 var client = new twitter(twitterKeys);
 //variables set to the action the user request and what they want to search
 var action = process.argv[2];
-
 /*END OF VARIABLES & REQUIRE*/
 /*-----------------------------------------------------------------------------------*/
 
-/*FUNCTIONS*/
+/*LOG TERMINAL COMMANDS AND RESULTS*/
+/*-----------------------------------------------------------------------------------*/
+var logQ = process.argv[3] || ' '
+var terminalCmd = '\n*TERMINAL COMMAND: node liri.js ' + action + ' ' + logQ + '\n';
+fs.appendFile('./log.txt', terminalCmd, function(err){
+	if(err) {console.log(err)}
+})
+
+//logs results to a text file named log.txt
+function logText(text) {
+	fs.appendFile('./log.txt', text, function(err) {
+	if(err) {console.log(err)}
+});
+/*-----------------------------------------------------------------------------------*/
+
+} //end of logText function
+/*APP FUNCTIONS*/
 /*-----------------------------------------------------------------------------------*/
 //function that pulls recent tweets when action is set to my-tweets
 function twitterFunc() {	
@@ -33,10 +48,14 @@ function twitterFunc() {
 	var params = {screen_name: userName};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
-		if (error) return console.log(error);
-		console.log("Twitter user: @" + params.screen_name + '\n')
+		if (error) {return console.log(error)};
+		var twitterName = "---------TWITTER---------\nTwitter user: @" + params.screen_name + '\n'
+		console.log('\n' + twitterName);
+		logText('\n' + twitterName);
 		for(var i = 0; i < tweets.length; i++){
-			console.log('Date: ' + tweets[i].created_at + '\nTweeted: ' + tweets[i].text + '\n');
+			var userTweets = '\nDate: ' + tweets[i].created_at + '\nTweeted: ' + tweets[i].text + '\n'
+			console.log(userTweets);
+			logText(userTweets);
 			//setting so only a maximum of 20 tweets are shown
 			if(i == 20) {break}
 		}
@@ -58,7 +77,7 @@ function omdbFunc(){
 	    body = JSON.parse(body); 
 
 	    //print the following information to the terminal
-	    console.log( '--------OMDB RESULTS--------\n' + 
+	    var omdbResults = '\n--------OMDB RESULTS--------\n' + 
 	    			'Title: ' + body.Title + '\n' +
 	    			'Year: ' + body.Year + '\n' +
 	    			'IMDB Rating: ' + body.imdbRating + '\n' +
@@ -68,7 +87,9 @@ function omdbFunc(){
 	    			'Actors: ' + body.Actors + '\n'+
 	    			'Rotten Tomatoes Rating: ' + body.tomatoUserMeter + '\n' +
 	    			'Rotten Tomatoes URL: ' + body.tomatoURL + 
-	    			'\n------END OF OMDB RESULTS------');
+	    			'\n------END OF OMDB RESULTS------\n';
+	    console.log(omdbResults);
+	    logText(omdbResults);
 	  }
 	});
 } //end of omdbFunc()
@@ -82,11 +103,13 @@ function spotifyFunc(){
 			
 			/*console.log(data.tracks.items[0]);*/
 			//console.log info for the song searched to the terminal
-			console.log('--------SPOTIFY RESULTS--------\n' + 
+			var spotifyResults = '\n--------SPOTIFY RESULTS--------\n' + 
 						'Artist: ' + data.tracks.items[0].artists[0].name + '\n' +
 						'Song: ' + data.tracks.items[0].name + '\n' +
 						'Spotify URL: ' + data.tracks.items[0].external_urls.spotify + 
-						'\n-------------------------------');
+						'\n-------------------------------\n';
+			console.log(spotifyResults);
+			logText(spotifyResults);
 	});
 } //end of spotifyFunc()
 
@@ -100,6 +123,7 @@ function fsFunc(){
 			exec(cmd, function(error, stdout, stderr) {
 				//console.log the results from the command
 				console.log(stdout);
+				logText(stdout);
 			})
 	});
 } //end of fsFunc()
